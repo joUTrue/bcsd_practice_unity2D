@@ -8,7 +8,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 vec = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))*speed;
+        Vector2 vec = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))*speed*Time.deltaTime;
         transform.Translate(vec);
     }
 }
