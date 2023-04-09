@@ -6,7 +6,7 @@ public class MoveByRigid : MonoBehaviour
 {
 
     Rigidbody2D rigid;
-    public float jump = 1;
+    public float jump = 1, speed = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,14 @@ public class MoveByRigid : MonoBehaviour
         //}
 
         Vector2 vec = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        rigid.AddForce (vec, ForceMode2D.Impulse);
+        transform.Translate(vec*speed);
 
-        rigid.AddTorque(1);
+        //rigid.AddTorque(1);
+    }
+
+    public void Jump()
+    {
+            rigid.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
+        
     }
 }
